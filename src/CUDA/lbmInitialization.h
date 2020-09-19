@@ -74,7 +74,7 @@ void initializationRandomNumbers(
 *                         useful for turbulence 
 */
 __global__
-void gpuInitialization(
+void gpuInitializationPop(
     Populations pop,
     Macroscopics macr,
     bool isMacrInit,

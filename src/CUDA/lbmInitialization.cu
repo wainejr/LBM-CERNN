@@ -97,7 +97,7 @@ void initializationRandomNumbers(
 
 
 __global__
-void gpuInitialization(
+void gpuInitializationPop(
     Populations pop,
     Macroscopics macr,
     bool isMacrInit,

@@ -22,6 +22,7 @@ typedef struct particleNode {
     dfloat3 vel; // node velocity
     dfloat3 vel_old;
     dfloat3 f;  // node force
+    dfloat3 deltaF;  // node force variation
     dfloat S; // node surface area
 } ParticleNode;
 
@@ -37,7 +38,7 @@ typedef struct particleNodeSoA {
     dfloat3SoA vel; // vectors with nodes velocities
     dfloat3SoA vel_old; // vectors with nodes old velocities
     dfloat3SoA f;  // vectors with nodes forces
-    dfloat3SoA delta_f;  // vectors with nodes forces variations
+    dfloat3SoA deltaF;  // vectors with nodes forces variations
     dfloat* S; // vector node surface area
 
     particleNodeSoA(){

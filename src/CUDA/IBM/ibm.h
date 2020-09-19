@@ -23,48 +23,48 @@
 
 __host__
 void immersedBoundaryMethod(
-    Particle* const particles,
-    Macroscopics* const macr,
-    Populations* const pop,
+    Particle* const restrict particles,
+    Macroscopics* const restrict macr,
+    Populations* const restrict pop,
     const dim3 gridLBM,
     const dim3 threadsLBM,
     const unsigned int gridIBM,
     const unsigned int threadsIBM,
-    cudaStream_t* const stream
+    cudaStream_t* const restrict stream
 );
 
 
 __global__
 void gpuForceInterpolationSpread(
     unsigned int totalParticlesNodes,
-    ParticleNode* particlesNodes,
-    Macroscopics* const macr
+    ParticleNode* const restrict particlesNodes,
+    Macroscopics* const restrict macr
 );
 
 
 __global__
-void gpuUpdateMacrResetForces(Populations* pop, Macroscopics* macr);
+void gpuUpdateMacrResetForces(Populations* restrict pop, Macroscopics* restrict macr);
 
 
 __global__
-void gpuResetNodesForces(ParticleNodeSoA* particleNodes);
+void gpuResetNodesForces(ParticleNodeSoA* restrict particleNodes);
 
 
 __host__ 
 void updateParticleCenterForce(
-    Particle* particleNode,
+    Particle* restrict particleNode,
     unsigned int numParticles
 );
 
 __host__ 
 dfloat3 particleCollisionSoft(
-    ParticleCenter* particleCenter,
+    ParticleCenter* restrict particleCenter,
     int particleIndex
 );
 
 __global__
 void particleMovement(
-    ParticleCenter* ParticleCenter
+    ParticleCenter* restrict ParticleCenter
 );
 
 #endif // !__IBM_H
